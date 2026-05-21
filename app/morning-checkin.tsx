@@ -53,6 +53,12 @@ export default function MorningCheckinScreen() {
     accent:       "#2D9B6F",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   const handleSave = () => {
     // TODO: persist entry
     router.back();
@@ -69,7 +75,7 @@ export default function MorningCheckinScreen() {
           <TouchableOpacity onPress={() => router.back()} activeOpacity={0.7} className="mr-3 p-1">
             <Ionicons name="chevron-back" size={24} color={colors.heading} />
           </TouchableOpacity>
-          <Text className="text-[18px] font-semibold" style={{ color: colors.heading }}>
+          <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             Morning Check-In
           </Text>
         </View>
@@ -80,7 +86,7 @@ export default function MorningCheckinScreen() {
           keyboardShouldPersistTaps="handled"
         >
           {/* How are you feeling? */}
-          <Text className="text-[15px] font-semibold mb-3" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-3" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             How are you feeling?
           </Text>
           <View className="flex-row flex-wrap gap-3 mb-6">
@@ -101,8 +107,8 @@ export default function MorningCheckinScreen() {
                 >
                   <Text style={{ fontSize: 34 }}>{m.emoji}</Text>
                   <Text
-                    className="text-[13px] mt-1.5 font-medium"
-                    style={{ color: active ? "#2D7A5E" : colors.body }}
+                    className="text-[14px] mt-1.5"
+                    style={{ color: active ? "#2D7A5E" : colors.body, fontFamily: fonts.medium }}
                   >
                     {m.label}
                   </Text>
@@ -112,10 +118,10 @@ export default function MorningCheckinScreen() {
           </View>
 
           {/* Energy Level */}
-          <Text className="text-[15px] font-semibold mb-1" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-1" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             Energy Level
           </Text>
-          <Text className="text-[13px] mb-3" style={{ color: colors.accent }}>
+          <Text className="text-[14px] mb-3" style={{ color: colors.accent, fontFamily: fonts.regular }}>
             1 = Low, 5 = High
           </Text>
           <View className="flex-row justify-between mb-6">
@@ -136,8 +142,8 @@ export default function MorningCheckinScreen() {
                   }}
                 >
                   <Text
-                    className="text-[17px] font-semibold"
-                    style={{ color: active ? colors.numActiveText : colors.numText }}
+                    className="text-[14px]"
+                    style={{ color: active ? colors.numActiveText : colors.numText, fontFamily: fonts.bold }}
                   >
                     {n}
                   </Text>
@@ -147,10 +153,10 @@ export default function MorningCheckinScreen() {
           </View>
 
           {/* Stress Level */}
-          <Text className="text-[15px] font-semibold mb-1" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-1" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             Stress Level
           </Text>
-          <Text className="text-[13px] mb-3" style={{ color: colors.accent }}>
+          <Text className="text-[14px] mb-3" style={{ color: colors.accent, fontFamily: fonts.regular }}>
             1 = Low, 5 = High
           </Text>
           <View className="flex-row justify-between mb-6">
@@ -171,8 +177,8 @@ export default function MorningCheckinScreen() {
                   }}
                 >
                   <Text
-                    className="text-[17px] font-semibold"
-                    style={{ color: active ? colors.numActiveText : colors.numText }}
+                    className="text-[14px]"
+                    style={{ color: active ? colors.numActiveText : colors.numText, fontFamily: fonts.bold }}
                   >
                     {n}
                   </Text>
@@ -182,7 +188,7 @@ export default function MorningCheckinScreen() {
           </View>
 
           {/* Today I need */}
-          <Text className="text-[15px] font-semibold mb-3" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-3" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             Today I need...
           </Text>
           <TextInput
@@ -190,12 +196,13 @@ export default function MorningCheckinScreen() {
             onChangeText={setTodayINeed}
             placeholder="patience, energy, focus..."
             placeholderTextColor={colors.placeholder}
-            className="rounded-2xl px-4 py-4 text-[15px] mb-8"
+            className="rounded-2xl px-4 py-4 text-[14px] mb-8"
             style={{
               backgroundColor: colors.inputBg,
               borderWidth: 1,
               borderColor: colors.inputBorder,
               color: colors.inputText,
+              fontFamily: fonts.regular,
             }}
           />
 
@@ -207,7 +214,7 @@ export default function MorningCheckinScreen() {
               className="flex-1 rounded-2xl py-4 items-center border"
               style={{ borderColor: colors.cardBorder, backgroundColor: colors.cardBg }}
             >
-              <Text className="text-[15px] font-semibold" style={{ color: colors.heading }}>
+                <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>
                 Skip
               </Text>
             </TouchableOpacity>
@@ -218,7 +225,7 @@ export default function MorningCheckinScreen() {
               style={{ backgroundColor: "#2D7A5E" }}
             >
               <Ionicons name="checkmark" size={18} color="#FFFFFF" />
-              <Text className="text-[15px] font-semibold" style={{ color: "#FFFFFF" }}>
+              <Text className="text-[14px]" style={{ color: "#FFFFFF", fontFamily: fonts.bold }}>
                 Save Check-In
               </Text>
             </TouchableOpacity>
@@ -228,3 +235,5 @@ export default function MorningCheckinScreen() {
     </SafeAreaView>
   );
 }
+
+

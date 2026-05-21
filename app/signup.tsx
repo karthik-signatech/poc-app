@@ -25,6 +25,12 @@ export default function SignupScreen() {
     accent: "#0F7A5E",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   const handleSignup = async () => {
     await markLoggedIn();
     router.replace("/(tabs)");
@@ -41,18 +47,18 @@ export default function SignupScreen() {
             <Ionicons name="book-outline" size={28} color={isDark ? "#7EE2B8" : "#0F7A5E"} />
           </View>
           <View>
-            <Text className="text-[24px] font-semibold" style={{ color: colors.heading }}>Lessyns</Text>
-            <Text className="text-[12px] mt-0.5" style={{ color: colors.body }}>For educators, by educators</Text>
+            <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>Lessyns</Text>
+            <Text className="text-[12px] mt-0.5" style={{ color: colors.body, fontFamily: fonts.regular }}>For educators, by educators</Text>
           </View>
         </View>
 
-        <Text className="text-[24px] font-semibold mt-4" style={{ color: colors.heading }}>Create account</Text>
-        <Text className="text-[14px] mt-1 mb-8" style={{ color: colors.body }}>
+        <Text className="text-[14px] mt-4" style={{ color: colors.heading, fontFamily: fonts.bold }}>Create account</Text>
+        <Text className="text-[14px] mt-1 mb-8" style={{ color: colors.body, fontFamily: fonts.regular }}>
           Start building your check-in streak
         </Text>
 
         <View className="rounded-3xl p-4" style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}>
-          <Text className="text-[14px] mb-2" style={{ color: colors.heading }}>Email</Text>
+          <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.medium }}>Email</Text>
           <TextInput
             value={email}
             onChangeText={setEmail}
@@ -60,30 +66,30 @@ export default function SignupScreen() {
             placeholderTextColor={colors.muted}
             autoCapitalize="none"
             keyboardType="email-address"
-            className="rounded-2xl px-4 py-3.5 text-[15px] mb-4"
-            style={{ backgroundColor: colors.inputBg, borderColor: colors.border, borderWidth: 1, color: colors.heading }}
+            className="rounded-2xl px-4 py-3.5 text-[14px] mb-4"
+            style={{ backgroundColor: colors.inputBg, borderColor: colors.border, borderWidth: 1, color: colors.heading, fontFamily: fonts.regular }}
           />
 
-          <Text className="text-[14px] mb-2" style={{ color: colors.heading }}>Password</Text>
+          <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.medium }}>Password</Text>
           <TextInput
             value={password}
             onChangeText={setPassword}
             placeholder="Create password"
             placeholderTextColor={colors.muted}
             secureTextEntry
-            className="rounded-2xl px-4 py-3.5 text-[15px] mb-4"
-            style={{ backgroundColor: colors.inputBg, borderColor: colors.border, borderWidth: 1, color: colors.heading }}
+            className="rounded-2xl px-4 py-3.5 text-[14px] mb-4"
+            style={{ backgroundColor: colors.inputBg, borderColor: colors.border, borderWidth: 1, color: colors.heading, fontFamily: fonts.regular }}
           />
 
-          <Text className="text-[14px] mb-2" style={{ color: colors.heading }}>Promo code (optional)</Text>
+          <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.medium }}>Promo code (optional)</Text>
           <TextInput
             value={promoCode}
             onChangeText={setPromoCode}
             placeholder="Enter promo code"
             placeholderTextColor={colors.muted}
             autoCapitalize="characters"
-            className="rounded-2xl px-4 py-3.5 text-[15px]"
-            style={{ backgroundColor: colors.inputBg, borderColor: colors.border, borderWidth: 1, color: colors.heading }}
+            className="rounded-2xl px-4 py-3.5 text-[14px]"
+            style={{ backgroundColor: colors.inputBg, borderColor: colors.border, borderWidth: 1, color: colors.heading, fontFamily: fonts.regular }}
           />
 
           <TouchableOpacity
@@ -92,15 +98,15 @@ export default function SignupScreen() {
             className="rounded-2xl py-4 items-center mt-6"
             style={{ backgroundColor: colors.accent }}
           >
-            <Text className="text-[15px] font-semibold" style={{ color: "#FFFFFF" }}>Sign Up</Text>
+            <Text className="text-[14px]" style={{ color: "#FFFFFF", fontFamily: fonts.bold }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
 
         <View className="flex-row items-center justify-center mt-5">
-          <Text className="text-[14px]" style={{ color: colors.body }}>Already have an account? </Text>
+          <Text className="text-[14px]" style={{ color: colors.body, fontFamily: fonts.regular }}>Already have an account? </Text>
           <Link href="/login" asChild>
             <TouchableOpacity activeOpacity={0.8}>
-              <Text className="text-[14px] font-semibold" style={{ color: colors.accent }}>Log in</Text>
+              <Text className="text-[14px]" style={{ color: colors.accent, fontFamily: fonts.bold }}>Log in</Text>
             </TouchableOpacity>
           </Link>
         </View>
@@ -108,3 +114,5 @@ export default function SignupScreen() {
     </SafeAreaView>
   );
 }
+
+

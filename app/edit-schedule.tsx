@@ -24,6 +24,12 @@ export default function EditScheduleScreen() {
     actionText: "#FFFFFF",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   const addNudge = () => {
     const defaults = ["10:15 AM", "01:30 PM", "03:45 PM"];
     const next = defaults[nudgeTimes.length] ?? "04:30 PM";
@@ -41,36 +47,36 @@ export default function EditScheduleScreen() {
           <Ionicons name="time-outline" size={31} color={colors.iconColor} />
         </View>
 
-        <Text className="text-[20px] font-medium" style={{ color: colors.heading }}>Set up your schedule</Text>
-        <Text className="text-[14px] mt-1 mb-8" style={{ color: colors.body }}>We'll tailor resets to your school day</Text>
+        <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.medium }}>Set up your schedule</Text>
+        <Text className="text-[14px] mt-1 mb-8" style={{ color: colors.body, fontFamily: fonts.regular }}>We'll tailor resets to your school day</Text>
 
         <View className="flex-row gap-4 mb-6">
           <View className="flex-1">
-            <Text className="text-[14px] font-semibold mb-2" style={{ color: colors.heading }}>First Bell</Text>
+            <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.bold }}>First Bell</Text>
             <TouchableOpacity
               activeOpacity={0.8}
               className="rounded-2xl px-4 py-4 flex-row items-center"
               style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
             >
-              <Text className="text-[16px] font-semibold flex-1" style={{ color: colors.heading }}>08:00 AM</Text>
+              <Text className="text-[14px] flex-1" style={{ color: colors.heading, fontFamily: fonts.bold }}>08:00 AM</Text>
               <Ionicons name="time-outline" size={19} color={colors.heading} />
             </TouchableOpacity>
           </View>
 
           <View className="flex-1">
-            <Text className="text-[14px] font-semibold mb-2" style={{ color: colors.heading }}>Dismissal</Text>
+            <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.bold }}>Dismissal</Text>
             <TouchableOpacity
               activeOpacity={0.8}
               className="rounded-2xl px-4 py-4 flex-row items-center"
               style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
             >
-              <Text className="text-[16px] font-semibold flex-1" style={{ color: colors.heading }}>03:00 PM</Text>
+              <Text className="text-[14px] flex-1" style={{ color: colors.heading, fontFamily: fonts.bold }}>03:00 PM</Text>
               <Ionicons name="time-outline" size={19} color={colors.heading} />
             </TouchableOpacity>
           </View>
         </View>
 
-        <Text className="text-[14px] font-semibold mb-3" style={{ color: colors.heading }}>Number of Periods</Text>
+        <Text className="text-[14px] mb-3" style={{ color: colors.heading, fontFamily: fonts.bold }}>Number of Periods</Text>
         <View className="flex-row items-center mb-8">
           <TouchableOpacity
             activeOpacity={0.8}
@@ -78,10 +84,10 @@ export default function EditScheduleScreen() {
             className="w-14 h-14 rounded-2xl items-center justify-center"
             style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
           >
-            <Text className="text-[24px]" style={{ color: colors.heading }}>-</Text>
+            <Text className="text-[14px]" style={{ color: colors.heading }}>-</Text>
           </TouchableOpacity>
 
-          <Text className="text-[34px] leading-[38px] mx-8" style={{ color: colors.heading }}>{periods}</Text>
+          <Text className="text-[34px] leading-[38px] mx-8" style={{ color: colors.heading, fontFamily: fonts.bold }}>{periods}</Text>
 
           <TouchableOpacity
             activeOpacity={0.8}
@@ -89,29 +95,29 @@ export default function EditScheduleScreen() {
             className="w-14 h-14 rounded-2xl items-center justify-center"
             style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
           >
-            <Text className="text-[24px]" style={{ color: colors.heading }}>+</Text>
+            <Text className="text-[14px]" style={{ color: colors.heading }}>+</Text>
           </TouchableOpacity>
         </View>
 
-        <Text className="text-[14px] font-semibold mb-2" style={{ color: colors.heading }}>Lunch Time</Text>
+        <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.bold }}>Lunch Time</Text>
         <TouchableOpacity
           activeOpacity={0.8}
           className="rounded-2xl px-4 py-4 flex-row items-center mb-8"
           style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
         >
-          <Text className="text-[16px] font-semibold flex-1" style={{ color: colors.heading }}>11:30 AM</Text>
+          <Text className="text-[14px] flex-1" style={{ color: colors.heading, fontFamily: fonts.bold }}>11:30 AM</Text>
           <Ionicons name="time-outline" size={19} color={colors.heading} />
         </TouchableOpacity>
 
         <View className="flex-row items-center justify-between mb-1">
-          <Text className="text-[14px] font-semibold" style={{ color: colors.heading }}>Nudge Times (optional)</Text>
+          <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>Nudge Times (optional)</Text>
           <TouchableOpacity onPress={addNudge} activeOpacity={0.8} className="flex-row items-center gap-2">
             <Ionicons name="add" size={18} color={colors.action} />
-            <Text className="text-[16px] font-semibold" style={{ color: colors.action }}>Add</Text>
+            <Text className="text-[14px]" style={{ color: colors.action, fontFamily: fonts.bold }}>Add</Text>
           </TouchableOpacity>
         </View>
 
-        <Text className="text-[12px] mb-4" style={{ color: colors.muted }}>Get gentle reminders to take a reset</Text>
+        <Text className="text-[12px] mb-4" style={{ color: colors.muted, fontFamily: fonts.regular }}>Get gentle reminders to take a reset</Text>
 
         <View className="gap-2 mb-8">
           {nudgeTimes.map((time, idx) => (
@@ -120,7 +126,7 @@ export default function EditScheduleScreen() {
               className="rounded-xl px-3 py-3 flex-row items-center"
               style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
             >
-              <Text className="text-[16px] flex-1" style={{ color: colors.heading }}>{time}</Text>
+              <Text className="text-[14px] flex-1" style={{ color: colors.heading, fontFamily: fonts.regular }}>{time}</Text>
               <TouchableOpacity onPress={() => setNudgeTimes((prev) => prev.filter((_, i) => i !== idx))}>
                 <Ionicons name="close-circle" size={18} color={colors.muted} />
               </TouchableOpacity>
@@ -135,9 +141,11 @@ export default function EditScheduleScreen() {
           style={{ backgroundColor: colors.actionBg }}
         >
           <Ionicons name="checkmark" size={18} color={colors.actionText} />
-          <Text className="text-[15px] font-semibold" style={{ color: colors.actionText }}>Save & Continue</Text>
+          <Text className="text-[14px]" style={{ color: colors.actionText, fontFamily: fonts.bold }}>Save & Continue</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+

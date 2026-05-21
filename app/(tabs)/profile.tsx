@@ -11,6 +11,13 @@ const CHIPS = {
   stressors: ["Student behavior", "Colleague dynamics", "Workload overload"],
 };
 
+const FONTS = {
+  regular: "PlusJakartaSans_400Regular",
+  medium: "PlusJakartaSans_500Medium",
+  semibold: "PlusJakartaSans_600SemiBold",
+  bold: "PlusJakartaSans_700Bold",
+};
+
 export default function ProfileScreen() {
   const isDark = useColorScheme() === "dark";
   const tabBarHeight = useBottomTabBarHeight();
@@ -43,8 +50,8 @@ export default function ProfileScreen() {
           <View className="w-22 h-22 rounded-3xl bg-[#C7F0DD] items-center justify-center mb-4">
             <Ionicons name="person-outline" size={38} color="#0F7A5E" />
           </View>
-          <Text className="text-[18px] font-semibold" style={{ color: colors.text }}>Edward DeShazer</Text>
-          <Text className="text-[14px] mt-0.5" style={{ color: colors.subtext }}>ed@edwarddeshazer.org</Text>
+          <Text className="text-[14px]" style={{ color: colors.text, fontFamily: FONTS.bold }}>Edward DeShazer</Text>
+          <Text className="text-[12px] mt-0.5" style={{ color: colors.subtext, fontFamily: FONTS.regular }}>ed@edwarddeshazer.org</Text>
         </View>
 
         <View className="rounded-2xl overflow-hidden" style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}>
@@ -59,13 +66,13 @@ export default function ProfileScreen() {
 
           <View className="px-4 py-4">
             <View className="flex-row items-center justify-between mb-3">
-              <Text className="text-[14px]" style={{ color: colors.subtext }}>School Grades</Text>
+              <Text className="text-[12px]" style={{ color: colors.subtext, fontFamily: FONTS.regular }}>School Grades</Text>
               <Ionicons name="pencil-outline" size={18} color={colors.muted} />
             </View>
             <View className="flex-row flex-wrap gap-2">
               {CHIPS.grades.map((chip) => (
                 <View key={chip} className="rounded-full px-3 py-1.5" style={{ backgroundColor: colors.chipBg }}>
-                  <Text className="text-[14px]" style={{ color: colors.text }}>{chip}</Text>
+                  <Text className="text-[12px]" style={{ color: colors.text, fontFamily: FONTS.regular }}>{chip}</Text>
                 </View>
               ))}
             </View>
@@ -93,13 +100,13 @@ export default function ProfileScreen() {
 
           <View className="px-4 py-4">
             <View className="flex-row items-center justify-between mb-3">
-              <Text className="text-[14px]" style={{ color: colors.subtext }}>Top Stressors</Text>
+              <Text className="text-[12px]" style={{ color: colors.subtext, fontFamily: FONTS.regular }}>Top Stressors</Text>
               <Ionicons name="pencil-outline" size={18} color={colors.muted} />
             </View>
             <View className="flex-row flex-wrap gap-2">
               {CHIPS.stressors.map((chip) => (
                 <View key={chip} className="rounded-full px-3 py-1.5" style={{ backgroundColor: colors.chipBg }}>
-                  <Text className="text-[14px]" style={{ color: colors.text }}>{chip}</Text>
+                  <Text className="text-[12px]" style={{ color: colors.text, fontFamily: FONTS.regular }}>{chip}</Text>
                 </View>
               ))}
             </View>
@@ -125,13 +132,13 @@ export default function ProfileScreen() {
             style={{ backgroundColor: colors.actionBg, borderColor: colors.border, borderWidth: 1 }}
           >
             <Ionicons name="log-out-outline" size={18} color={colors.subtext} />
-            <Text className="text-[16px] font-medium" style={{ color: colors.text }}>Sign Out</Text>
+            <Text className="text-[14px]" style={{ color: colors.text, fontFamily: FONTS.medium }}>Sign Out</Text>
           </TouchableOpacity>
         </View>
 
         <View className="items-center mt-8 mb-3">
-          <Text className="text-[16px]" style={{ color: colors.subtext }}>Lessyns</Text>
-          <Text className="text-[12px] mt-1" style={{ color: colors.muted }}>For educators, by educators who care.</Text>
+          <Text className="text-[14px]" style={{ color: colors.subtext, fontFamily: FONTS.medium }}>Lessyns</Text>
+          <Text className="text-[12px] mt-1" style={{ color: colors.muted, fontFamily: FONTS.regular }}>For educators, by educators who care.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -168,8 +175,8 @@ function ProfileRow({
         {icon}
       </View>
       <View className="flex-1">
-        <Text className="text-[14px]" style={{ color: colors.subtext }}>{label}</Text>
-        <Text className="text-[16px] font-semibold mt-0.5" style={{ color: colors.text }}>{value}</Text>
+        <Text className="text-[12px]" style={{ color: colors.subtext, fontFamily: FONTS.regular }}>{label}</Text>
+        <Text className="text-[14px] mt-0.5" style={{ color: colors.text, fontFamily: FONTS.bold }}>{value}</Text>
       </View>
       <Ionicons name="pencil-outline" size={18} color={colors.muted} />
     </View>
@@ -197,8 +204,10 @@ function ActionRow({
       <View className="w-11 h-11 rounded-2xl bg-[#C7F0DD] items-center justify-center mr-3">
         {leftIcon}
       </View>
-      <Text className="flex-1 text-[16px] font-semibold" style={{ color: colors.text }}>{label}</Text>
+      <Text className="flex-1 text-[14px]" style={{ color: colors.text, fontFamily: FONTS.bold }}>{label}</Text>
       <Ionicons name="chevron-forward" size={18} color={colors.muted} />
     </TouchableOpacity>
   );
 }
+
+

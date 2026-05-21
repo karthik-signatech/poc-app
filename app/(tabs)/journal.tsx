@@ -34,6 +34,13 @@ export default function JournalScreen() {
   const router = useRouter();
   const [_, setShowPrivate] = useState(false);
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    semibold: "PlusJakartaSans_600SemiBold",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   const colors = {
     screenBg: isDark ? "#121315" : "#F5F4EF",
     cardBg: isDark ? "#1B1D20" : "#FFFFFF",
@@ -67,26 +74,26 @@ export default function JournalScreen() {
                 <Ionicons name="book-outline" size={24} color="#047857" />
               </View>
               <View>
-                <Text className="text-[20px] font-semibold" style={{ color: colors.heading }}>Journal</Text>
-                <Text className="text-[14px]" style={{ color: colors.body }}>Track your week & check in</Text>
+                <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>Journal</Text>
+                <Text className="text-[14px]" style={{ color: colors.body, fontFamily: fonts.regular }}>Track your week & check in</Text>
               </View>
             </View>
 
             {/* My Week card */}
             <View className="rounded-2xl p-4 mb-4" style={{ backgroundColor: colors.cardBg, borderColor: colors.cardBorder, borderWidth: 1 }}>
-              <Text className="text-[16px] font-semibold" style={{ color: colors.heading }}>My Week</Text>
-              <Text className="text-[14px] mt-0.5 mb-4" style={{ color: "#2D9B6F" }}>Tap to check in</Text>
+              <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>My Week</Text>
+              <Text className="text-[14px] mt-0.5 mb-4" style={{ color: "#2D9B6F", fontFamily: fonts.regular }}>Tap to check in</Text>
 
               {/* Streak row */}
               <View className="flex-row items-center justify-between rounded-xl px-3 py-3 mb-4" style={{ backgroundColor: colors.streakBg }}>
                 <View className="flex-row items-center gap-2">
                   <Ionicons name="flame" size={18} color="#F97316" />
-                  <Text className="text-[15px] font-semibold" style={{ color: colors.heading }}>1 day streak</Text>
+                  <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>1 day streak</Text>
                 </View>
-                <Text className="text-[13px]" style={{ color: colors.body }}>Longest: 2</Text>
+                <Text className="text-[14px]" style={{ color: colors.body, fontFamily: fonts.regular }}>Longest: 2</Text>
               </View>
 
-              <Text className="text-[14px] mb-4" style={{ color: colors.body }}>
+              <Text className="text-[14px] mb-4" style={{ color: colors.body, fontFamily: fonts.regular }}>
                 New streak starts today. You've got this.
               </Text>
 
@@ -102,9 +109,9 @@ export default function JournalScreen() {
                     className="flex-1 rounded-2xl py-4 px-2 items-center"
                     style={{ backgroundColor: colors.miniCardBg }}
                   >
-                    <Text className="text-[13px]" style={{ color: colors.body }}>{item.label}</Text>
-                    <Text className="text-[24px] leading-[28px] mt-1" style={{ color: colors.miniCardLine }}>{item.value}</Text>
-                    <Text className="text-[16px] mt-2" style={{ color: colors.body }}>
+                    <Text className="text-[14px]" style={{ color: colors.body, fontFamily: fonts.regular }}>{item.label}</Text>
+                    <Text className="text-[14px] leading-[28px] mt-1" style={{ color: colors.miniCardLine, fontFamily: fonts.medium }}>{item.value}</Text>
+                    <Text className="text-[14px] mt-2" style={{ color: colors.body, fontFamily: fonts.regular }}>
                       - -
                     </Text>
                   </View>
@@ -113,8 +120,8 @@ export default function JournalScreen() {
 
               {/* Insight */}
               <View className="rounded-xl px-3 py-3 mb-4" style={{ backgroundColor: colors.insightBg }}>
-                <Text className="text-[13px] font-semibold mb-1" style={{ color: "#2D7A5E" }}>One insight</Text>
-                <Text className="text-[13px]" style={{ color: colors.body }}>Keep checking in to see patterns emerge.</Text>
+                <Text className="text-[14px] mb-1" style={{ color: "#2D7A5E", fontFamily: fonts.bold }}>One insight</Text>
+                <Text className="text-[14px]" style={{ color: colors.body, fontFamily: fonts.regular }}>Keep checking in to see patterns emerge.</Text>
               </View>
 
               {/* Start Check-In */}
@@ -124,12 +131,12 @@ export default function JournalScreen() {
                 className="rounded-2xl py-4 mb-4 items-center"
                 style={{ backgroundColor: colors.buttonBg }}
               >
-                <Text className="text-[15px] font-semibold" style={{ color: colors.buttonText }}>Start Check-In</Text>
+                <Text className="text-[14px]" style={{ color: colors.buttonText, fontFamily: fonts.bold }}>Start Check-In</Text>
               </TouchableOpacity>
 
               {/* Privacy notice */}
               <View className="rounded-xl px-3 py-3 mb-4" style={{ backgroundColor: isDark ? "#151B2A" : "#EBF4FF" }}>
-                <Text className="text-[13px]" style={{ color: isDark ? "#8B9BB4" : "#3B6EA8" }}>
+                <Text className="text-[14px]" style={{ color: isDark ? "#8B9BB4" : "#3B6EA8", fontFamily: fonts.regular }}>
                   Keep this private to you. Avoid student names or identifying details.
                 </Text>
               </View>
@@ -145,8 +152,8 @@ export default function JournalScreen() {
                   <Ionicons name="sunny-outline" size={20} color="#D97706" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-[15px] font-semibold" style={{ color: colors.heading }}>Morning Check-In</Text>
-                  <Text className="text-[13px] mt-0.5" style={{ color: colors.body }}>Start your day with intention</Text>
+                  <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>Morning Check-In</Text>
+                  <Text className="text-[14px] mt-0.5" style={{ color: colors.body, fontFamily: fonts.regular }}>Start your day with intention</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={18} color={colors.chevron} />
               </TouchableOpacity>
@@ -161,15 +168,15 @@ export default function JournalScreen() {
                   <Ionicons name="moon-outline" size={20} color="#3B82F6" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-[15px] font-semibold" style={{ color: colors.heading }}>End-of-Day Closeout</Text>
-                  <Text className="text-[13px] mt-0.5" style={{ color: colors.body }}>Reflect and release the day</Text>
+                  <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>End-of-Day Closeout</Text>
+                  <Text className="text-[14px] mt-0.5" style={{ color: colors.body, fontFamily: fonts.regular }}>Reflect and release the day</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={18} color={colors.chevron} />
               </TouchableOpacity>
             </View>
 
             {/* My Check-Ins header */}
-            <Text className="text-[12px] font-semibold tracking-widest uppercase mt-4 mb-3" style={{ color: colors.body }}>
+            <Text className="text-[12px] tracking-widest uppercase mt-4 mb-3" style={{ color: colors.body, fontFamily: fonts.semibold }}>
               My Check-Ins
             </Text>
           </>
@@ -182,17 +189,17 @@ export default function JournalScreen() {
           >
             <View className="flex-row items-center mb-2">
               <View className="rounded-full px-3 py-1" style={{ backgroundColor: item.type === "Morning Check-In" ? "#FEF3C7" : item.type === "End-of-Day Closeout" ? "#DBEAFE" : "#F3E8FF" }}>
-                <Text className="text-[12px] font-medium" style={{ color: item.type === "Morning Check-In" ? "#D97706" : item.type === "End-of-Day Closeout" ? "#3B82F6" : "#7C3AED" }}>
+                <Text className="text-[12px]" style={{ color: item.type === "Morning Check-In" ? "#D97706" : item.type === "End-of-Day Closeout" ? "#3B82F6" : "#7C3AED", fontFamily: fonts.medium }}>
                   {item.type}
                 </Text>
               </View>
-              <Text className="text-[12px] ml-2.5 flex-1" style={{ color: colors.body }}>{item.date}</Text>
+              <Text className="text-[12px] ml-2.5 flex-1" style={{ color: colors.body, fontFamily: fonts.regular }}>{item.date}</Text>
               <TouchableOpacity activeOpacity={0.7} className="p-1 -mr-1">
                 <Ionicons name="trash-outline" size={16} color={colors.iconMuted} />
               </TouchableOpacity>
             </View>
             {item.details.split("\n").map((line, i) => (
-              <Text key={i} className="text-[14px]" style={{ color: colors.body }}>{line}</Text>
+              <Text key={i} className="text-[14px]" style={{ color: colors.body, fontFamily: fonts.regular }}>{line}</Text>
             ))}
           </TouchableOpacity>
         )}
@@ -200,3 +207,5 @@ export default function JournalScreen() {
     </SafeAreaView>
   );
 }
+
+

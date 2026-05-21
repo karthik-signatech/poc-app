@@ -53,6 +53,13 @@ export default function ScriptsScreen() {
     searchBg: isDark ? "#1B1D20" : "#FFFFFF",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    semibold: "PlusJakartaSans_600SemiBold",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   const filteredItems = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return SCRIPT_ITEMS.filter((item) => {
@@ -89,8 +96,8 @@ export default function ScriptsScreen() {
             <Ionicons name="book-outline" size={24} color="#0F7A5E" />
           </View>
           <View>
-            <Text className="text-[20px] font-semibold" style={{ color: colors.heading }}>Script Vault</Text>
-            <Text className="text-[14px] mt-0.5" style={{ color: colors.body }}>Words for tough moments</Text>
+            <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>Script Vault</Text>
+            <Text className="text-[13px] mt-1" style={{ color: colors.body, fontFamily: fonts.regular }}>Words for tough moments</Text>
           </View>
         </View>
 
@@ -104,12 +111,12 @@ export default function ScriptsScreen() {
             onChangeText={setQuery}
             placeholder="Search scripts..."
             placeholderTextColor={colors.muted}
-            className="ml-3 flex-1 text-[16px]"
-            style={{ color: colors.heading }}
+            className="ml-3 flex-1 text-[14px]"
+            style={{ color: colors.heading, fontFamily: fonts.regular }}
           />
         </View>
 
-        <Text className="text-[14px] mb-3" style={{ color: colors.heading }}>Category</Text>
+        <Text className="text-[13px] mb-3" style={{ color: colors.heading, fontFamily: fonts.medium }}>Category</Text>
         <View className="flex-row flex-wrap gap-2 mb-5">
           {CATEGORIES.map((category) => {
             const active = activeCategory === category;
@@ -125,13 +132,13 @@ export default function ScriptsScreen() {
                   borderWidth: 1,
                 }}
               >
-                <Text className="text-[16px]" style={{ color: active ? colors.chipActiveText : colors.chipText }}>{category}</Text>
+                <Text className="text-[14px]" style={{ color: active ? colors.chipActiveText : colors.chipText, fontFamily: fonts.regular }}>{category}</Text>
               </TouchableOpacity>
             );
           })}
         </View>
 
-        <Text className="text-[14px] mb-3" style={{ color: colors.heading }}>Tone</Text>
+        <Text className="text-[13px] mb-3" style={{ color: colors.heading, fontFamily: fonts.medium }}>Tone</Text>
         <View className="flex-row flex-wrap gap-2 mb-5">
           {TONES.map((tone) => {
             const active = activeTone === tone;
@@ -147,7 +154,7 @@ export default function ScriptsScreen() {
                   borderWidth: 1,
                 }}
               >
-                <Text className="text-[16px]" style={{ color: active ? colors.chipActiveText : colors.chipText }}>{tone}</Text>
+                <Text className="text-[14px]" style={{ color: active ? colors.chipActiveText : colors.chipText, fontFamily: fonts.regular }}>{tone}</Text>
               </TouchableOpacity>
             );
           })}
@@ -160,17 +167,17 @@ export default function ScriptsScreen() {
               <TouchableOpacity
                 key={item.id}
                 activeOpacity={0.8}
-                className="rounded-2xl px-4 py-4"
+                className="rounded-2xl px-4 py-5"
                 style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
               >
                 <View className="flex-row items-start">
-                  <Text className="text-[16px] font-semibold flex-1 pr-3" style={{ color: colors.heading }}>{item.title}</Text>
+                  <Text className="text-[14px] flex-1 pr-3" style={{ color: colors.heading, fontFamily: fonts.bold }}>{item.title}</Text>
                   <Ionicons name="chevron-forward" size={18} color={colors.muted} />
                 </View>
                 <View className="flex-row items-center gap-3 mt-3">
-                  <Text className="text-[15px]" style={{ color: colors.heading }}>{item.category}</Text>
+                  <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.regular }}>{item.category}</Text>
                   <View className="rounded-full px-3 py-1" style={{ backgroundColor: toneColors.bg }}>
-                    <Text className="text-[14px]" style={{ color: toneColors.text }}>{item.tone}</Text>
+                    <Text className="text-[13px]" style={{ color: toneColors.text, fontFamily: fonts.medium }}>{item.tone}</Text>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -181,3 +188,5 @@ export default function ScriptsScreen() {
     </SafeAreaView>
   );
 }
+
+

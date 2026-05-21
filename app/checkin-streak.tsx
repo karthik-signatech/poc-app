@@ -29,6 +29,12 @@ export default function CheckinStreakScreen() {
     flame: "#F97316",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   return (
     <SafeAreaView className="flex-1" style={{ backgroundColor: colors.screenBg }} edges={["top", "left", "right"]}>
       <ScrollView
@@ -40,7 +46,7 @@ export default function CheckinStreakScreen() {
           <TouchableOpacity onPress={() => router.back()} activeOpacity={0.75} className="p-1 mr-2">
             <Ionicons name="chevron-back" size={22} color={colors.heading} />
           </TouchableOpacity>
-          <Text className="text-[20px] font-semibold" style={{ color: colors.heading }}>
+          <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             Check-in Streak
           </Text>
         </View>
@@ -50,13 +56,13 @@ export default function CheckinStreakScreen() {
           style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
         >
           <Ionicons name="flame-outline" size={54} color={colors.flame} />
-          <Text className="text-[48px] leading-[52px] mt-2" style={{ color: colors.heading }}>
+          <Text className="text-[48px] leading-[52px] mt-2" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             1
           </Text>
-          <Text className="text-[18px] mt-1" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mt-1" style={{ color: colors.heading, fontFamily: fonts.medium }}>
             day streak
           </Text>
-          <Text className="text-[14px] mt-4" style={{ color: colors.body }}>
+          <Text className="text-[14px] mt-4" style={{ color: colors.body, fontFamily: fonts.regular }}>
             Longest: 2 days
           </Text>
         </View>
@@ -65,7 +71,7 @@ export default function CheckinStreakScreen() {
           className="rounded-3xl px-4 py-5 mb-5"
           style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
         >
-          <Text className="text-[16px] font-semibold mb-4" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-4" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             Last 14 Days
           </Text>
 
@@ -79,6 +85,7 @@ export default function CheckinStreakScreen() {
                       className="text-[14px]"
                       style={{
                         color: colors.muted,
+                        fontFamily: fonts.regular,
                         width: CALENDAR_CELL_SIZE,
                         marginRight: idx === DAY_LABELS.length - 1 ? 0 : CALENDAR_CELL_GAP,
                         textAlign: "center",
@@ -106,7 +113,7 @@ export default function CheckinStreakScreen() {
                         {checked ? (
                           <Ionicons name="checkmark" size={22} color="#FFFFFF" />
                         ) : (
-                          <Text className="text-[16px]" style={{ color: colors.tileText }}>
+                          <Text className="text-[14px]" style={{ color: colors.tileText, fontFamily: fonts.medium }}>
                             {date}
                           </Text>
                         )}
@@ -123,16 +130,16 @@ export default function CheckinStreakScreen() {
           className="rounded-3xl px-4 py-5 mb-5"
           style={{ backgroundColor: colors.cardBg, borderColor: colors.border, borderWidth: 1 }}
         >
-          <Text className="text-[16px] font-semibold mb-2" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.bold }}>
             How streaks work
           </Text>
-          <Text className="text-[14px] mb-2" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.regular }}>
             - One check-in per day keeps your streak
           </Text>
-          <Text className="text-[14px] mb-2" style={{ color: colors.heading }}>
+          <Text className="text-[14px] mb-2" style={{ color: colors.heading, fontFamily: fonts.regular }}>
             - Miss a day and it resets
           </Text>
-          <Text className="text-[14px]" style={{ color: colors.heading }}>
+          <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.regular }}>
             - Check in anytime before midnight
           </Text>
         </View>
@@ -143,7 +150,7 @@ export default function CheckinStreakScreen() {
           className="rounded-2xl py-4 items-center"
           style={{ backgroundColor: colors.accent }}
         >
-          <Text className="text-[15px] font-semibold" style={{ color: "#FFFFFF" }}>
+          <Text className="text-[14px]" style={{ color: "#FFFFFF", fontFamily: fonts.bold }}>
             Start Check-In
           </Text>
         </TouchableOpacity>
@@ -151,3 +158,5 @@ export default function CheckinStreakScreen() {
     </SafeAreaView>
   );
 }
+
+

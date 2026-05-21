@@ -45,6 +45,13 @@ export default function FavoritesScreen() {
     segmentTextActive: isDark ? "#E9EDF3" : "#111827",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    semibold: "PlusJakartaSans_600SemiBold",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   return (
     <SafeAreaView className="flex-1" style={{ backgroundColor: colors.screenBg }} edges={["top", "left", "right"]}>
       <FlatList
@@ -58,8 +65,8 @@ export default function FavoritesScreen() {
                 <Ionicons name="heart-outline" size={24} color="#F05268" />
               </View>
               <View>
-                <Text className="text-[20px] font-semibold" style={{ color: colors.heading }}>Favorites</Text>
-                <Text className="text-[14px]" style={{ color: colors.body }}>Your saved resets & scripts</Text>
+                <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>Favorites</Text>
+                <Text className="text-[12px]" style={{ color: colors.body, fontFamily: fonts.regular }}>Your saved resets & scripts</Text>
               </View>
             </View>
 
@@ -71,8 +78,8 @@ export default function FavoritesScreen() {
                   style={{ backgroundColor: activeTab === "resets" ? colors.segmentActive : "transparent" }}
                 >
                   <Text
-                    className="text-[14px] font-semibold"
-                    style={{ color: activeTab === "resets" ? colors.segmentTextActive : colors.segmentText }}
+                    className="text-[13px]"
+                    style={{ color: activeTab === "resets" ? colors.segmentTextActive : colors.segmentText, fontFamily: fonts.bold }}
                   >
                     Resets ({FAVORITES.resets.length})
                   </Text>
@@ -83,8 +90,8 @@ export default function FavoritesScreen() {
                   style={{ backgroundColor: activeTab === "scripts" ? colors.segmentActive : "transparent" }}
                 >
                   <Text
-                    className="text-[14px] font-medium"
-                    style={{ color: activeTab === "scripts" ? colors.segmentTextActive : colors.segmentText }}
+                    className="text-[13px]"
+                    style={{ color: activeTab === "scripts" ? colors.segmentTextActive : colors.segmentText, fontFamily: fonts.medium }}
                   >
                     Scripts ({FAVORITES.scripts.length})
                   </Text>
@@ -104,12 +111,12 @@ export default function FavoritesScreen() {
             }}
           >
             <View className="flex-row items-center">
-              <Text className="flex-1 text-[16px] font-semibold" style={{ color: colors.heading }}>{item.title}</Text>
+              <Text className="flex-1 text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>{item.title}</Text>
               <Ionicons name="chevron-forward" size={20} color={colors.chevron} />
             </View>
             <View className="mt-2 flex-row items-center">
               <Ionicons name="time-outline" size={15} color={colors.iconMuted} />
-              <Text className="ml-2 text-[14px]" style={{ color: colors.body }}>{item.duration}</Text>
+              <Text className="ml-2 text-[12px]" style={{ color: colors.body, fontFamily: fonts.regular }}>{item.duration}</Text>
             </View>
           </TouchableOpacity>
         )}
@@ -117,3 +124,5 @@ export default function FavoritesScreen() {
     </SafeAreaView>
   );
 }
+
+

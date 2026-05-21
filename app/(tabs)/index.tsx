@@ -40,6 +40,13 @@ export default function HomeScreen() {
     activeSubtitle: "#4CAF87",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    semibold: "PlusJakartaSans_600SemiBold",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   return (
     <SafeAreaView className="flex-1" style={{ backgroundColor: colors.screenBg }} edges={["top", "left", "right"]}>
       <ScrollView
@@ -52,30 +59,30 @@ export default function HomeScreen() {
             <Ionicons name="leaf" size={22} color="white" />
           </View>
           <View>
-            <Text className="text-[18px] font-semibold" style={{ color: colors.heading }}>
+            <Text className="text-[14px]" style={{ color: colors.heading, fontFamily: fonts.bold }}>
               Good morning, <Text className="text-[#2D9B6F]">Edward</Text>
             </Text>
-            <Text className="text-sm" style={{ color: colors.secondary }}>Take a reset when you need it</Text>
+            <Text className="text-[12px]" style={{ color: colors.secondary, fontFamily: fonts.regular }}>Take a reset when you need it</Text>
           </View>
         </View>
 
         <TouchableOpacity
           activeOpacity={0.85}
           onPress={() => router.push("../hard-moment")}
-          className="rounded-2xl bg-[#C17A50] p-5 mb-6 flex-row items-center overflow-hidden"
+          className="rounded-3xl bg-[#C17A50] px-5 py-6 mb-7 flex-row items-center overflow-hidden"
         >
           <View className="w-12 h-12 rounded-full border-2 border-white/40 items-center justify-center mr-4">
             <Ionicons name="alert-circle-outline" size={26} color="white" />
           </View>
           <View className="flex-1">
-            <Text className="text-white text-xl font-bold">Hard Moment?</Text>
-            <Text className="text-white/80 text-sm mt-0.5">Get an instant reset + script</Text>
+            <Text className="text-white text-[14px]" style={{ fontFamily: fonts.bold }}>Hard Moment?</Text>
+            <Text className="text-white/80 text-[12px] mt-1" style={{ fontFamily: fonts.regular }}>Get an instant reset + script</Text>
           </View>
           <View className="absolute right-[-20px] top-[-20px] w-28 h-28 rounded-full bg-white/10" />
           <View className="absolute right-6 bottom-[-30px] w-20 h-20 rounded-full bg-white/10" />
         </TouchableOpacity>
 
-        <Text className="text-xs font-semibold tracking-widest uppercase mb-3 ml-1" style={{ color: colors.secondary }}>
+        <Text className="text-[10px] tracking-widest uppercase mb-3 ml-1" style={{ color: colors.secondary, fontFamily: fonts.semibold }}>
           Bell to Bell
         </Text>
 
@@ -89,7 +96,7 @@ export default function HomeScreen() {
                 }
               }}
               activeOpacity={0.7}
-              className="flex-row items-center rounded-2xl px-4 py-3.5"
+              className="flex-row items-center rounded-2xl px-4 py-4"
               style={{
                 backgroundColor: item.active ? colors.activeCardBg : colors.cardBg,
                 borderColor: item.active ? colors.activeCardBorder : "transparent",
@@ -111,10 +118,16 @@ export default function HomeScreen() {
                 )}
               </View>
               <View className="flex-1">
-                <Text className="text-[15px] font-semibold" style={{ color: item.active ? colors.activeTitle : colors.heading }}>
+                <Text
+                  className="text-[13px]"
+                  style={{ color: item.active ? colors.activeTitle : colors.heading, fontFamily: fonts.bold }}
+                >
                   {item.title}
                 </Text>
-                <Text className="text-sm mt-0.5" style={{ color: item.active ? colors.activeSubtitle : colors.secondary }}>
+                <Text
+                  className="text-[12px] mt-1"
+                  style={{ color: item.active ? colors.activeSubtitle : colors.secondary, fontFamily: fonts.regular }}
+                >
                   {item.time}
                 </Text>
               </View>
@@ -126,3 +139,5 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
+
+

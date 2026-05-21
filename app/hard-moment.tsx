@@ -45,40 +45,46 @@ export default function HardMomentScreen() {
     progressActive: "#E8486A",
   };
 
+  const fonts = {
+    regular: "PlusJakartaSans_400Regular",
+    medium: "PlusJakartaSans_500Medium",
+    bold: "PlusJakartaSans_700Bold",
+  };
+
   return (
     <SafeAreaView className="flex-1" style={{ backgroundColor: colors.screenBg }} edges={["top", "left", "right"]}>
       <ScrollView
         className="flex-1 px-4"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingTop: 8, paddingBottom: 24 }}
+        contentContainerStyle={{ paddingTop: 14, paddingBottom: 28 }}
       >
-        <View className="flex-row items-center mb-4">
+        <View className="flex-row items-center mb-6">
           <TouchableOpacity onPress={() => router.back()} activeOpacity={0.7} className="mr-2 p-1">
             <Ionicons name="chevron-back" size={22} color={colors.text} />
           </TouchableOpacity>
-          <Text className="text-[20px] font-semibold" style={{ color: colors.text }}>
+          <Text className="text-[14px]" style={{ color: colors.text, fontFamily: fonts.bold }}>
             Hard Moment
           </Text>
         </View>
 
-        <View className="flex-row items-center gap-2 mb-7">
+        <View className="flex-row items-center gap-2 mb-8">
           <View className="h-1 flex-1 rounded-full" style={{ backgroundColor: colors.progressActive }} />
           <View className="h-1 flex-1 rounded-full" style={{ backgroundColor: colors.progressBg }} />
         </View>
 
-        <Text className="text-[20px] font-medium" style={{ color: colors.text }}>
+        <Text className="text-[14px]" style={{ color: colors.text, fontFamily: fonts.medium }}>
           What happened?
         </Text>
-        <Text className="text-[14px] mt-1 mb-5" style={{ color: colors.subtext }}>
+        <Text className="text-[13px] mt-1 mb-6" style={{ color: colors.subtext, fontFamily: fonts.regular }}>
           We'll find the right reset for you
         </Text>
 
-        <View className="gap-3 pb-2">
+        <View className="gap-4 pb-3">
           {HARD_MOMENTS.map((item) => (
             <TouchableOpacity
               key={item.id}
               activeOpacity={0.8}
-              className="rounded-2xl p-4 flex-row items-center"
+              className="rounded-2xl px-4 py-5 flex-row items-center"
               style={{
                 backgroundColor: colors.cardBg,
                 borderColor: colors.cardBorder,
@@ -92,10 +98,10 @@ export default function HardMomentScreen() {
                 <MaterialCommunityIcons name={item.icon} size={26} color={colors.iconColor} />
               </View>
               <View className="flex-1 pr-2">
-                <Text className="text-[16px] font-semibold" style={{ color: colors.text }}>
+                <Text className="text-[14px]" style={{ color: colors.text, fontFamily: fonts.bold }}>
                   {item.title}
                 </Text>
-                <Text className="text-[14px] mt-0.5" style={{ color: colors.subtext }}>
+                <Text className="text-[13px] mt-1" style={{ color: colors.subtext, fontFamily: fonts.regular }}>
                   {item.subtitle}
                 </Text>
               </View>
@@ -106,3 +112,5 @@ export default function HardMomentScreen() {
     </SafeAreaView>
   );
 }
+
+
